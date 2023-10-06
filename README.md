@@ -6,12 +6,12 @@ Welcome to AIdentity project! 🚀 This quick Git cheat sheet will assist you in
 - **Remote**: Refers to the repository hosted on GitHub's website.
 - **Local**: The repository that resides on your personal computer.
 
-## 🚀 To get started
+## 🚀 To get started(only the first time)
 ### Clone the Repository(Automatically establish a link to your remote repo)
 ```
 git clone [repo-link]
 ```
-### To check which repo you're connected to you can use:
+### To check which repo you're connected to you can use(Optional):
 ```
 git remote --v
 ```
@@ -30,7 +30,7 @@ git pull origin main
 ```
 git checkout YourBranchName
 ```
-## Check which branch you're on
+## Check which branch you're on(Optional)
 
 ```
 git branch
