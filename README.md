@@ -51,6 +51,10 @@ git push
 
 ### Always work on your branch and push on your branch first 
 ### always pull from main first so you're in sync with your team
+### we'll be making a requirements.txt file which has all necessary packages that we need to run the app. you just run that file and it downloads them all. 
+### add to .gitignore(a file you make) anything that you don't want pushed to github. sensitive things like private APIs go here. 
+
+
 
 
 
