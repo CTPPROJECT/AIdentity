@@ -1,0 +1,10 @@
+# Virtual environment
+myenv/
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+# Local configuration files
+.env
+.env.local
+
