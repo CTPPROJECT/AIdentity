@@ -1,63 +1,30 @@
-# AIdentity: Your Guide to Collaborative Coding with Git and GitHub
+# AIdentity: Your Career Hub
 
-Welcome to AIdentity project! 🚀 This quick Git cheat sheet will assist you in smoothly navigating through your coding journey on GitHub while ensuring team collaboration is top-notch.
-
-## 🌐 Understanding Key Terms:
-- **Remote**: Refers to the repository hosted on GitHub's website.
-- **Local**: The repository that resides on your personal computer.
-
-## 🚀 To get started(only the first time)
-### Clone the Repository(Automatically establish a link to your remote repo)
+## Create an environment: 
 ```
-git clone [repo-link]
-```
-### To check which repo you're connected to you can use(Optional):
-```
-git remote --v
-```
-
-## Sync with Main
-### Always make sure your local main branch is updated before starting your work.
-### This step ensures you have all the updated code that might have been pushed by teammates.
-```
-git pull origin main
-```
-### Ensure you're always working on your branch to avoid conflicts and ensure a smooth workflow.
-
-## Switching to Your Branch
-## Replace YourBranchName with the actual name of your branch.
-
-```
-git checkout YourBranchName
-```
-## Check which branch you're on(Optional)
-
-```
-git branch
+python3 -m venv myenv
 
 ```
 
-## Push to your branch
+## Activating it:
+
 ```
-git add .
-git commit -m "something"
-git push
+source myenv/bin/activate
+
 ```
 
-## now you can go to the website create a pull request and merge into main
-### normally at work there are people who review code before merging but here we're all admins of this repo so anyone can push into main as long as there are no conflicts
+## Deactivate environment:
 
-## NOTES for harmonius collaboration
+```
+deactivate
 
-### Always work on your branch and push on your branch first 
-### always pull from main first so you're in sync with your team
-### we'll be making a requirements.txt file which has all necessary packages that we need to run the app. you just run that file and it downloads them all. 
-### add to .gitignore(a file you make) anything that you don't want pushed to github. sensitive things like private APIs go here. 
+```
 
+## Install everything
+```
+pip install -r requirements.txt
 
-
-
-
+```
 
 
 
