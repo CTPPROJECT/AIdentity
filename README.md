@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ```
 
-## After your done updating code:
+## After you're done updating code:
 ### This command will add all the packages in your code to the requirements.txt file
 
 ```
