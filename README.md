@@ -9,8 +9,8 @@ python3 -m venv myenv
 ## Activating it:
 
 ```
-source myenv/bin/activate
 
+source myenv/bin/activate
 ```
 
 ## Deactivate environment:
