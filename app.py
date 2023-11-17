@@ -21,7 +21,7 @@ app.layout = html.Div([
     
     dcc.Tabs(id='tabs', value='geographic', children=[
         dcc.Tab(label='Geographic', value='geographic'),
-        dcc.Tab(label='Psycographic', value='psycographic'),
+        dcc.Tab(label='Psychographic', value='psychographic'),
         dcc.Tab(label='Demographic', value='demographic'),
     ]),
     
@@ -41,8 +41,8 @@ def render_content(tab):
 
     # BRENDAN'S SECTION
     ####################################################################################################
-    elif tab == 'psycographic':
-        # Return the content for the "Psycographic" tab
+    elif tab == 'psychographic':
+        # Return the content for the "Psychographic" tab
         return dbc.Container([
             dbc.Row([
                 dbc.Col([
@@ -62,10 +62,10 @@ def render_content(tab):
             dbc.Row([
                 dbc.Col([
                     dcc.Graph(id='psych-chart-box1'),
-                    # dcc.Graph(id='psych-chart-box2'),
-                    # dcc.Graph(id='psych-chart-box3'),
-                    # dcc.Graph(id='psych-chart-box4'),
-                    # dcc.Graph(id='psych-chart-box5')
+                    dcc.Graph(id='psych-chart-box2'),
+                    dcc.Graph(id='psych-chart-box3'),
+                    dcc.Graph(id='psych-chart-box4'),
+                    dcc.Graph(id='psych-chart-box5')
                 ], width=6),
                 dbc.Col([
                     dcc.Graph(id='psych-chart-bar'),
@@ -128,21 +128,51 @@ def update_plots(selected_factor):
 ##Brendan functions
 ##Brendan we all need to put all our callbacks and functions right in the end here. 
 @app.callback(
-    # Output('psych-chart-box1', 'figure'),
-#      Output('psych-chart-box2', 'figure'),
-#      Output('psych-chart-box3', 'figure'),
-#      Output('psych-chart-box4', 'figure'),
-#      Output('psych-chart-box5', 'figure'),
+    Output('psych-chart-box1', 'figure'),
+     Output('psych-chart-box2', 'figure'),
+     Output('psych-chart-box3', 'figure'),
+     Output('psych-chart-box4', 'figure'),
+     Output('psych-chart-box5', 'figure'),
      Output('psych-chart-bar', 'figure'),
     Input('psych-factor', 'value')
 )
-def update_plots(selected_factor):
-    # fig_box1 = px.box(
-    #     data_visualize_B,
-    #     x=selected_factor, ## you spelled 'agreableness' which wasn't correct
-    #     y='100-150k',
-    #     title=f"{selected_factor} $50-100k",
-    # ) ### there's something wrong with this one . i changed your y value btw. y need to be a column name in the dataset 
+
+def update_plots2(selected_factor):
+    fig_box1 = px.box(
+        data_visualize_B,
+        x=selected_factor,
+        y='50-100k',
+        title=f"{selected_factor} $50-100k",
+    )
+
+    fig_box2 = px.box(
+        data_visualize_B,
+        x=selected_factor,
+        y='100-150k',
+        title=f"{selected_factor} $100-150k",
+    )
+
+    fig_box3 = px.box(
+        data_visualize_B,
+        x=selected_factor,
+        y='150-200k',
+        title=f"{selected_factor} $150-200k",
+    )
+
+    fig_box4 = px.box(
+        data_visualize_B,
+        x=selected_factor,
+        y='200-500k',
+        title=f"{selected_factor} $200-500k",
+    )
+
+    fig_box5 = px.box(
+        data_visualize_B,
+        x=selected_factor,
+        y='+500k',
+        title=f"{selected_factor} $500k+",
+    )
+
     fig_bar = px.histogram(
         data_visualize_B,
         x=selected_factor,
@@ -150,7 +180,7 @@ def update_plots(selected_factor):
         title=f"Employment by {selected_factor}",
     )
 
-    return fig_bar
+    return [fig_box1, fig_box2, fig_box3, fig_box4, fig_box5, fig_bar]
 
  
 
@@ -160,58 +190,4 @@ if __name__ == '__main__':
 
 
 
-# @app.callback(
-#     [Output('psych-chart-box1', 'figure'),
-# #      Output('psych-chart-box2', 'figure'),
-# #      Output('psych-chart-box3', 'figure'),
-# #      Output('psych-chart-box4', 'figure'),
-# #      Output('psych-chart-box5', 'figure'),
-#      Output('psych-chart-bar', 'figure')],
-#     [Input('psych-factor', 'value')]
-# )
-# def update_plots2(selected_factor):
-#     fig_box1 = px.box(
-#         data_visualize_B,
-#         x=selected_factor,
-#         y='_50-100k',
-#         title=f"{selected_factor} $50-100k",
-#     )
 
-#     fig_box2 = px.box(
-#         data_visualize_B,
-#         x=selected_factor,
-#         y='_100-150k',
-#         title=f"{selected_factor} $100-150k",
-#     )
-
-    # fig_box3 = px.box(
-    #     data_visualize_B,
-    #     x=selected_factor,
-    #     y='_150-200k',
-    #     title=f"{selected_factor} $150-200k",
-    # )
-
-    # fig_box4 = px.box(
-    #     data_visualize_B,
-    #     x=selected_factor,
-    #     y='_200-500k',
-    #     title=f"{selected_factor} $200-500k",
-    # )
-
-    # fig_box5 = px.box(
-    #     data_visualize_B,
-    #     x=selected_factor,
-    #     y='_+500k',
-    #     title=f"{selected_factor} $500k+",
-    # )
-
-    # fig_bar = px.histogram(
-    #     data_visualize_B,
-    #     x=selected_factor,
-    #     color="_employment",
-    #     title=f"Employment by {selected_factor}",
-    # )
-
-    # return figbox1, fig_bar
-
-    # return [fig_box1, fig_box2, fig_box3, fig_box4, fig_box5, fig_bar]
